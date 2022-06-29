@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+#logo {
+  height: 5rem;
+  margin: 20px 0px 0px 30px;
+}
+
+body {
+  margin: 20px;
+}
