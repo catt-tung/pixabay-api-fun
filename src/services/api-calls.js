@@ -6,7 +6,21 @@ export function imageSearch(formData) {
   .then(res => res.json())
 }
 
-export function getImageDetails(id) {
-    return fetch(`${baseUrl}?key=${MY_KEY}&id=${id}`)
-    .then(res => res.json())
+// export function getImageDetails(id) {
+//     return fetch(`${baseUrl}?key=${MY_KEY}&id=${id}`)
+//     .then(res => res.json())
+// }
+
+export async function getImageDetails(id) {
+  try  {
+    const response = await fetch(`${baseUrl}?key=${MY_KEY}&id=${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data[0].name);
+  }
+  catch(error) {
+    console.error(`Could not get:${error}`);
+  }
 }
