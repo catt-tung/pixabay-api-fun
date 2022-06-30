@@ -22,7 +22,7 @@ const ImageSearch = (props) => {
       <h3>Image Search</h3>
       <SearchForm handleImageSearch={handleImageSearch} />
       {images.map(image =>
-        <div key={image.id}>{image.id}</div>
+        <div key={image.id}><img src={image.previewURL} alt="" /></div>
         )}
     </>
   );
