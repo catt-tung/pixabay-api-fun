@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <img id='logo' src={ logo } alt="" />
-      <h1>Pixabay Image Search</h1>
+      <h1>Pixabay API Image Search</h1>
       <Routes>
         <Route path="/" element={<ImageSearch />} />
       </Routes>

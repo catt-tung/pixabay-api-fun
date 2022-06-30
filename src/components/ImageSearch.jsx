@@ -5,6 +5,7 @@ import SearchForm from "./SearchForm";
 
 //services
 import { imageSearch } from '../services/api-calls';
+import ImageCard from './ImageCard';
 
 const ImageSearch = (props) => {
   const [images, setImages] = useState([])
@@ -22,8 +23,9 @@ const ImageSearch = (props) => {
       <h3>Image Search</h3>
       <SearchForm handleImageSearch={handleImageSearch} />
       {images.map(image =>
-        <div key={image.id}><img src={image.previewURL} alt="" /></div>
+        <ImageCard image={image} key={image.id}/>
         )}
+      
     </>
   );
 }
