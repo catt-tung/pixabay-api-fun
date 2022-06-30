@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
+//components
 import SearchForm from "./SearchForm";
 
+//services
 import { imageSearch } from '../services/api-calls';
 
 const ImageSearch = (props) => {
@@ -13,11 +15,15 @@ const ImageSearch = (props) => {
       setImages(imageHits.hits)
     })
   }
+  console.log(images)
 
   return (
     <>
       <h3>Image Search</h3>
       <SearchForm handleImageSearch={handleImageSearch} />
+      {images.map(image =>
+        <div key={image.id}>{image.id}</div>
+        )}
     </>
   );
 }

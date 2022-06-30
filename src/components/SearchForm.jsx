@@ -2,16 +2,21 @@ import React, { useState } from 'react';
 
 
 const SearchForm = (props) => {
-  const [formData, setFormData] = useState({query:''})
+  const [formData, setFormData] = useState({query: ''})
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
+  const handleSubmit = evt => {
+    evt.preventDefault()
+    props.handleImageSearch(formData)
+  }
+
   return (
     <>
       <div>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <input
             name="query"
             type="text"
