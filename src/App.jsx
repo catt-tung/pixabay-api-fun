@@ -4,6 +4,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import ImageSearch from './components/ImageSearch';
+import ImageDetails from './pages/ImageDetails';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <h1>Pixabay API Image Search</h1>
       <Routes>
         <Route path="/" element={<ImageSearch />} />
+        <Route path="/image/:id" element={<ImageDetails />} />
       </Routes>
     </>
   );
