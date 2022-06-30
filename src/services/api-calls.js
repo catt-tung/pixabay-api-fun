@@ -5,3 +5,8 @@ export function imageSearch(formData) {
   return fetch(`${baseUrl}?key=${MY_KEY}&q=${formData.query}`)
   .then(res => res.json())
 }
+
+export function getImageDetails(id) {
+    return fetch(`${baseUrl}?key=${MY_KEY}&id=${id}`)
+    .then(res => res.json())
+}
