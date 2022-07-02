@@ -10,21 +10,32 @@ const ImageDetails = (props) => {
   console.log(id)
 
   useEffect(() => {
-    getImageDetails(id)
-    .then(imageData => setImageDetails(imageData))
+    const getAndSetImageDetails = async () => {
+      const imageDetails = await getImageDetails(id)
+      setImageDetails(imageDetails)
+    } 
+    getAndSetImageDetails()
   }, [])
 
   console.log(imageDetails)
 
   return (
     <>
-      <h3>Image Details Sanity Check</h3>
-      <img src={imageDetails.hits[0].webformatURL} alt="" />
-      <p>Posted by: {imageDetails.hits[0].user} </p>
-      <p>Relevant tags: {imageDetails.hits[0].tags} </p>
+      <h3>Image Details</h3>
+      { imageDetails.name ?
+        <>
+          <img src={imageDetails.hits[0].webformatURL} alt="" />
+          <p>Posted by: {imageDetails.hits[0].user} </p>
+          <p>Relevant tags: {imageDetails.hits[0].tags} </p>
+        </>
+        :
+        <>
+          <p>Loading Image details...</p>
+        </>
+      }
       <Link to="/">Return to Search</Link>
     </>
   );
 }
 
-export default ImageDetails;
+export default React.memo(ImageDetails);
